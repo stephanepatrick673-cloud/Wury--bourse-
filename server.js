@@ -14,8 +14,9 @@ const { DatabaseSync } = require("node:sqlite");
 const path = require("path");
 
 const PORT = process.env.PORT || 3000;
-const DB_PATH = path.join(__dirname, "wuri_bourse.db");
-const UPLOADS_DIR = path.join(__dirname, "uploads");
+DB_PATH = ":memory:";
+UPLOADS_DIR = "/tmp/uploads";
+
 fs.mkdirSync(UPLOADS_DIR, { recursive: true });
 const TOKEN_SECRET = process.env.TOKEN_SECRET || "changeme-en-production-avec-une-vraie-cle-secrete";
 const FEE_RATE = 0.01; // 1% de frais de courtage, achat comme vente
